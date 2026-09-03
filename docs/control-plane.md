@@ -39,6 +39,10 @@ publisher。两者都会校验注入实现返回 `ArtifactRef`。
 公共包不包含 provider SDK、凭证、网络 client、存储 backend、模型实现或策略 registry。
 这些能力应放在使用方仓库的 adapter 后面。
 
+目标文件中的默认 source label 是 `strategy-pipeline`。它表示控制面负责生成交接文件，
+不表示控制面拥有具体策略或研究逻辑。需要自定义 source label 的使用方可以在自己的
+adapter 中显式传入，不应把策略名称写入公共包。
+
 ## AFML 证据绑定
 
 `attach_afml_evidence_to_lineage` 可以把运行目录中已生成的研究协议、组合 sizing、
