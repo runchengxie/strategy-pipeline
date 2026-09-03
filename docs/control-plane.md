@@ -38,3 +38,10 @@ publisher。两者都会校验注入实现返回 `ArtifactRef`。
 
 公共包不包含 provider SDK、凭证、网络 client、存储 backend、模型实现或策略 registry。
 这些能力应放在使用方仓库的 adapter 后面。
+
+## AFML 证据绑定
+
+`attach_afml_evidence_to_lineage` 可以把运行目录中已生成的研究协议、组合 sizing、
+风险和 HRP receipt 绑定到 `targets.json.lineage.json`。函数只写入证据文件路径和
+SHA-256，不修改目标持仓语义。默认要求研究协议报告的 `level` 为 `release` 且
+`status` 为 `pass`，可以通过 `require_release_protocol=False` 放宽这个要求。
