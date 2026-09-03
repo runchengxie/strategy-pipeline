@@ -88,7 +88,7 @@ def _iter_history_blobs(repo_root: Path):
     )
     stream = memoryview(result.stdout)
     offset = 0
-    for _object_id, path in objects.items():
+    for path in objects.values():
         header_end = result.stdout.find(b"\n", offset)
         if header_end < 0:
             break

@@ -55,7 +55,7 @@ def _load_registry(repo_root: Path) -> dict[str, str]:
         raise ValueError("public dependency registry schema_version must be 1")
     repositories = payload.get("repositories")
     if not isinstance(repositories, dict):
-        raise ValueError("public dependency registry repositories must be an object")
+        raise TypeError("public dependency registry repositories must be an object")
     result: dict[str, str] = {}
     for url, visibility in repositories.items():
         if visibility not in {"public", "private"}:
@@ -70,14 +70,14 @@ def _load_debt(repo_root: Path) -> dict[str, dict[str, str]]:
         raise ValueError("public readiness debt schema_version must be 1")
     entries = payload.get("entries")
     if not isinstance(entries, dict):
-        raise ValueError("public readiness debt entries must be an object")
+        raise TypeError("public readiness debt entries must be an object")
     required = {"owner", "removal_stream", "reason"}
     validated: dict[str, dict[str, str]] = {}
     for key, metadata in entries.items():
         if not isinstance(key, str) or len(key.split("|")) != 2:
             raise ValueError(f"invalid public readiness debt key: {key!r}")
         if not isinstance(metadata, dict):
-            raise ValueError(f"invalid public readiness debt metadata for {key}")
+            raise TypeError(f"invalid public readiness debt metadata for {key}")
         missing = sorted(required - metadata.keys())
         if missing:
             raise ValueError(f"public readiness debt {key} missing: {', '.join(missing)}")
