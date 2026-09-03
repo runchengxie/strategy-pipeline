@@ -10,9 +10,15 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
 
+[project.scripts]
+strategy-pipeline = "strategy_pipeline.cli:main"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["strategy_pipeline", "strategy_pipeline.public_core"]
+include = ["strategy_pipeline", "strategy_pipeline.control_plane", "strategy_pipeline.control_plane.*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
