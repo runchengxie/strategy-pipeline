@@ -22,5 +22,7 @@ jobs:
         run: python -m pip install --no-deps "$RUNNER_TEMP/public-surface"
       - name: Run public readiness gate
         run: cd "$RUNNER_TEMP/public-surface" && python scripts/dev/public_readiness.py --strict
+      - name: Audit current tree and reachable history
+        run: python scripts/dev/history_publication_audit.py --root .
       - name: Run synthetic public core tests
         run: cd "$RUNNER_TEMP/public-surface" && python -m pip install pytest && PYTHONPATH=src python -m pytest tests/control_plane -q
