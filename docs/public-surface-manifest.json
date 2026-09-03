@@ -17,11 +17,46 @@
       "reason": "Included in the reviewed clean-root public surface."
     },
     {
+      "path": "AGENTS.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
       "path": "README.md",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "docs/control-plane.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public explanation of the dependency-free control-plane API."
+    },
+    {
+      "path": "docs/development.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public development, testing, and clean-room verification guidance."
+    },
+    {
+      "path": "docs/README.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public documentation index for the control-plane surface."
+    },
+    {
+      "path": "docs/integrating-an-owner.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public adapter guidance using synthetic owner behavior only."
     },
     {
       "path": "SECURITY.md",

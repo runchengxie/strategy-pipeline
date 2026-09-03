@@ -2,12 +2,10 @@
 
 Audit revision: `5964145`
 
-## Decision
+## 结论
 
-The reviewed clean-root surface is suitable for public technical review. The
-existing repository is **not** suitable for direct visibility conversion.
-Publication must use a new root history and preserve the current repository as
-a private archive.
+经过审阅的 clean-root surface 适合公开技术审阅。原仓库不能直接切换为公开仓库。
+公开发布应使用新的根历史，并保留当前仓库作为私有归档。
 
 ## Evidence
 
@@ -16,23 +14,19 @@ a private archive.
 | Clean-root export | `direct-public-safe` | 0 |
 | Current private tree and reachable Git history | `clean-history-publication-required` | 790 |
 
-The clean-root export contains only the dependency-free public core, synthetic
-tests, public readiness tooling, security/contribution policy, and the
-secret-free public CI workflow. The export has no default dependencies and its
-strict public-readiness gate passes.
+clean-root 导出结果只包含无依赖公共核心、synthetic 测试、公共 readiness 工具、安全与
+贡献政策，以及不含敏感信息的公共 CI workflow。导出结果没有默认依赖，并且已通过
+严格的 public-readiness gate。
 
-The private-history result is expected: the retained repository contains
-historical strategy-specific research names, research documents, provider
-references, and private workspace material. This report intentionally records
-categories and counts, not sensitive content.
+私有历史的结果符合预期。保留的仓库包含历史策略名称、研究文档、provider 引用和私有
+workspace 内容。本报告只记录类别和数量，不记录敏感内容。
 
 ## Required publication procedure
 
-1. Generate a fresh clean-root export from the reviewed revision.
-2. Run the clean-tree audit and strict public-readiness gate.
-3. Create a new root Git history from that export.
-4. Run the full-history audit on the new root history.
-5. Obtain an explicit human review of strategy/IP, dependency, licensing, and
-   CI findings before changing repository visibility.
+1. 从经过审阅的 revision 重新生成 clean-root 导出结果。
+2. 运行 clean-tree audit 和严格的 public-readiness gate。
+3. 根据导出结果创建新的根 Git 历史。
+4. 在新的根历史上运行 full-history audit。
+5. 在修改仓库可见性前，完成对策略与知识产权、依赖、许可证和 CI 结果的人工审阅。
 
 No repository visibility change is authorized by this audit alone.
