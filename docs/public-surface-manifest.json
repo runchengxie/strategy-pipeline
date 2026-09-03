@@ -38,6 +38,13 @@
       "reason": "Public explanation of the dependency-free control-plane API."
     },
     {
+      "path": "docs/e2-promotion-receipt.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public documentation for hash-pinned promotion evidence receipts."
+    },
+    {
       "path": "docs/development.md",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
@@ -136,11 +143,25 @@
       "reason": "Generic command-line entry point for the public control plane."
     },
     {
+      "path": "src/strategy_pipeline/e2_promotion_receipt.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic writer for explicitly supplied, hash-pinned promotion evidence."
+    },
+    {
       "path": "tests/control_plane",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "tests/test_e2_promotion_receipt.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Synthetic tests for receipt materialization and safe lineage paths."
     }
   ]
 }
