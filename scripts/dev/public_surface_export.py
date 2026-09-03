@@ -32,12 +32,28 @@ SECRET_PATTERNS = (
 
 PUBLIC_README = """# Strategy Pipeline
 
-Dependency-free orchestration primitives for typed artifact production,
-publication, receipts, and downstream handoff.
+Dependency-free control-plane primitives for artifact orchestration, publication,
+receipts, and downstream handoff.
 
-The public package intentionally contains no investment strategy logic,
-provider implementation, private research workflow, or proprietary data.
-Owner-specific integrations belong in separately reviewed adapters.
+This repository owns the logistics around a run. It does not implement a
+strategy, research thesis, feature model, portfolio policy, data provider, or
+execution venue. Owner-specific behavior is supplied through small adapters.
+
+## Install
+
+```bash
+pip install strategy-pipeline
+```
+
+The package has no runtime dependencies. See [the control-plane guide](docs/control-plane.md)
+for the Python API and [the integration guide](docs/integrating-an-owner.md) for connecting
+an owner implementation.
+
+## Scope
+
+The public surface provides typed requests and receipts, deterministic owner-to-publication
+orchestration, provider-neutral publication and handoff boundaries, and a generic CLI.
+Strategy-specific code and private data belong in the owner repository.
 """
 
 PUBLIC_PYPROJECT = """[build-system]
