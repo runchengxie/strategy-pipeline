@@ -21,8 +21,6 @@ jobs:
       - name: Install public package
         run: python -m pip install --no-deps "$RUNNER_TEMP/public-surface"
       - name: Run public readiness gate
-        working-directory: "$RUNNER_TEMP/public-surface"
-        run: python scripts/dev/public_readiness.py --strict
+        run: cd "$RUNNER_TEMP/public-surface" && python scripts/dev/public_readiness.py --strict
       - name: Run synthetic public core tests
-        working-directory: "$RUNNER_TEMP/public-surface"
-        run: python -m pip install pytest && PYTHONPATH=src python -m pytest tests/public_core -q
+        run: cd "$RUNNER_TEMP/public-surface" && python -m pip install pytest && PYTHONPATH=src python -m pytest tests/control_plane -q
