@@ -87,14 +87,21 @@
       "reason": "Included in the reviewed clean-root public surface."
     },
     {
-      "path": "src/strategy_pipeline/public_core",
+      "path": "src/strategy_pipeline/control_plane",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Included in the reviewed clean-root public surface."
     },
     {
-      "path": "tests/public_core",
+      "path": "src/strategy_pipeline/cli.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic command-line entry point for the public control plane."
+    },
+    {
+      "path": "tests/control_plane",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",

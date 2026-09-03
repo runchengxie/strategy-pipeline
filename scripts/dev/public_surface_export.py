@@ -57,7 +57,7 @@ package-dir = {\"\" = \"src\"}
 
 [tool.setuptools.packages.find]
 where = [\"src\"]
-include = [\"strategy_pipeline\", \"strategy_pipeline.public_core\"]
+include = [\"strategy_pipeline\", \"strategy_pipeline.*\"]
 """
 
 
@@ -119,8 +119,15 @@ def _write_public_metadata(output_root: Path, copied_paths: list[str]) -> None:
     package = output_root / "src" / "strategy_pipeline"
     package.mkdir(parents=True, exist_ok=True)
     (package / "__init__.py").write_text(
-        "from .public_core import ArtifactRef, RunReceipt, RunRequest, run_pipeline\n\n"
-        "__all__ = [\"ArtifactRef\", \"RunReceipt\", \"RunRequest\", \"run_pipeline\"]\n",
+        "from .control_plane import (\n"
+        "    ArtifactPublisher, ArtifactRef, HandoffPublisher, HandoffRequest,\n"
+        "    PublicationRequest, RunOwner, RunReceipt, RunRequest, publish_artifact,\n"
+        "    publish_handoff, run,\n"
+        ")\n\n"
+        "__all__ = [\"ArtifactPublisher\", \"ArtifactRef\", \"HandoffPublisher\",\n"
+        "           \"HandoffRequest\", \"PublicationRequest\", \"RunOwner\",\n"
+        "           \"RunReceipt\", \"RunRequest\", \"publish_artifact\",\n"
+        "           \"publish_handoff\", \"run\"]\n",
         encoding="utf-8",
     )
     dev = output_root / "scripts" / "dev"
