@@ -10,6 +10,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
 
+[project.scripts]
+strategy-pipeline = "strategy_pipeline.cli:main"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 
