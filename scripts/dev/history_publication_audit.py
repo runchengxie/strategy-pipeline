@@ -94,12 +94,12 @@ def _iter_history_blobs(repo_root: Path):
             break
         parts = result.stdout[offset:header_end].split()
         offset = header_end + 1
-        if len(parts) != 3 or parts[1] != b"blob":
+        if len(parts) != 3:
             continue
         size = int(parts[2])
         content = stream[offset : offset + size]
         offset += size + 1
-        if size <= 10_000_000:
+        if parts[1] == b"blob" and size <= 10_000_000:
             yield path, bytes(content).decode("utf-8", errors="replace")
 
 
@@ -115,6 +115,8 @@ def audit_repository(repo_root: Path) -> dict[str, object]:
     history_available = (repo_root / ".git").exists() or (repo_root / ".git").is_file()
     if history_available:
         for path, text in _iter_history_blobs(repo_root):
+            if path in AUDIT_TOOL_PATHS:
+                continue
             for finding in scan_text(text, path=f"history:{path}"):
                 findings[(finding["category"], finding["path"])] = finding
 
