@@ -15,6 +15,7 @@ from .currentness import (
     evaluate_input_currentness,
 )
 from .handoff import publish_handoff
+from .output_context import OutputContext, build_output_context
 from .ports import ArtifactPublisher, HandoffPublisher, RunOwner
 from .publication import publish_artifact
 from .runner import run
@@ -24,6 +25,7 @@ __all__ = [
     "ArtifactRef",
     "HandoffPublisher",
     "HandoffRequest",
+    "OutputContext",
     "PublicationCurrentness",
     "PublicationCurrentnessPolicy",
     "PublicationRequest",
@@ -32,6 +34,7 @@ __all__ = [
     "RunReceipt",
     "RunRequest",
     "attach_afml_evidence_to_lineage",
+    "build_output_context",
     "evaluate_input_currentness",
     "publish_artifact",
     "publish_handoff",
