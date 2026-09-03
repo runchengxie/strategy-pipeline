@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "publication_mode": "clean-root",
+  "entries": [
+    {
+      "path": ".github/workflows/public-core.yml",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "README.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "SECURITY.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "docs/public-publication-manifest.json",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "docs/publication-audit.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "pyproject.toml",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "scripts/dev/history_publication_audit.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "scripts/dev/public_dependency_registry.json",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "scripts/dev/public_readiness.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "scripts/dev/public_readiness_debt.json",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "scripts/dev/public_surface_export.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "src/strategy_pipeline/public_core",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "tests/public_core",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    }
+  ]
+}
