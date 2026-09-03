@@ -8,6 +8,12 @@ from .contracts import (
     RunReceipt,
     RunRequest,
 )
+from .currentness import (
+    PublicationCurrentness,
+    PublicationCurrentnessPolicy,
+    PublicationTier,
+    evaluate_input_currentness,
+)
 from .handoff import publish_handoff
 from .ports import ArtifactPublisher, HandoffPublisher, RunOwner
 from .publication import publish_artifact
@@ -18,11 +24,15 @@ __all__ = [
     "ArtifactRef",
     "HandoffPublisher",
     "HandoffRequest",
+    "PublicationCurrentness",
+    "PublicationCurrentnessPolicy",
     "PublicationRequest",
+    "PublicationTier",
     "RunOwner",
     "RunReceipt",
     "RunRequest",
     "attach_afml_evidence_to_lineage",
+    "evaluate_input_currentness",
     "publish_artifact",
     "publish_handoff",
     "run",
