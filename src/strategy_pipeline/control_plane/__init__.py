@@ -1,5 +1,6 @@
 """Public, domain-neutral control-plane interfaces."""
 
+from .afml_lineage import attach_afml_evidence_to_lineage
 from .contracts import (
     ArtifactRef,
     HandoffRequest,
@@ -21,6 +22,7 @@ __all__ = [
     "RunOwner",
     "RunReceipt",
     "RunRequest",
+    "attach_afml_evidence_to_lineage",
     "publish_artifact",
     "publish_handoff",
     "run",
