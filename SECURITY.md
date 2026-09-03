@@ -1,9 +1,6 @@
-# Security Policy
+# 安全政策
 
-The public package is intentionally limited to dependency-free orchestration
-primitives. Do not submit credentials, private datasets, proprietary strategy
-logic, or private research artifacts.
+公共包只提供无依赖的编排基础能力。请勿提交凭证、私有数据集、专有策略逻辑或
+私有研究产物。
 
-Report security issues privately through the repository owner’s configured
-security channel. Do not open a public issue containing a credential or other
-sensitive material.
+安全问题请通过仓库维护者设置的私下渠道报告。凭证或其他敏感材料不能放入公开 issue。

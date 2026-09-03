@@ -1,9 +1,8 @@
-# Documentation
+# 文档
 
-This public repository documents the generic control plane only.
+本公共仓库只说明通用控制面，不包含具体策略实现。
 
-- [Control-plane API](control-plane.md): contracts, runner, publication, and handoff.
-- [Integrating an owner](integrating-an-owner.md): adapter shape and dependency boundary.
+- [控制面 API](control-plane.md)：contract、runner、publication 和 handoff。
+- [owner 接入指南](integrating-an-owner.md)：adapter 形状和依赖边界。
 
-Strategy ideas, research protocols, provider setup, credentials, and private
-operational playbooks belong in the consuming owner repository.
+策略思想、研究协议、provider 配置、凭证和私有运行手册应放在使用方仓库。

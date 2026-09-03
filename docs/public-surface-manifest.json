@@ -17,6 +17,13 @@
       "reason": "Included in the reviewed clean-root public surface."
     },
     {
+      "path": "AGENTS.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
       "path": "README.md",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
@@ -29,6 +36,13 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Public explanation of the dependency-free control-plane API."
+    },
+    {
+      "path": "docs/development.md",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public development, testing, and clean-room verification guidance."
     },
     {
       "path": "docs/README.md",

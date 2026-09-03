@@ -1,8 +1,7 @@
-# Integrating an owner implementation
+# 接入 owner 实现
 
-An owner repository supplies the domain behavior and implements the public
-protocols. The adapter should remain thin: translate the public request,
-invoke the owner, and return a validated `ArtifactRef`.
+owner 仓库提供领域行为并实现公共 protocol。adapter 只负责转换公共 request、调用
+owner，然后返回经过校验的 `ArtifactRef`。
 
 ```python
 from strategy_pipeline import ArtifactRef, PublicationRequest, RunRequest, run
@@ -10,7 +9,7 @@ from strategy_pipeline import ArtifactRef, PublicationRequest, RunRequest, run
 
 class Owner:
     def run(self, request: RunRequest) -> ArtifactRef:
-        # Domain-specific computation stays in the owner repository.
+        # 领域计算留在 owner 仓库。
         return ArtifactRef(
             kind="owner.result",
             uri=f"memory://runs/{request.run_id}/result.json",
@@ -21,18 +20,16 @@ class Owner:
 
 class Publisher:
     def publish(self, request: PublicationRequest) -> ArtifactRef:
-        # Storage and publication policy stay in the consuming repository.
+        # 存储和发布策略留在使用方仓库。
         return request.artifact
 
 
 receipt = run(RunRequest("example", ()), owner=Owner(), publisher=Publisher())
 ```
 
-Keep strategy ideas, feature construction, model selection, portfolio rules,
-provider clients, credentials, and private data out of this package. The
-public control plane should be usable with a synthetic owner and publisher in
-a clean environment.
+策略思想、特征构造、模型选择、组合规则、provider client、凭证和私有数据都不能
+进入这个包。公共控制面应能在 clean environment 中配合 synthetic owner 和 publisher
+使用。
 
-For a workspace integration, pin a reviewed public commit or release in the
-consumer's dependency lock file and add an integration test that exercises the
-full request-to-receipt path without importing private modules.
+接入 workspace 时，应在使用方的 dependency lock 中固定已审阅的 public commit
+或 release，并增加一条不导入私有模块、覆盖完整 request-to-receipt 路径的集成测试。

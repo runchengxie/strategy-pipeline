@@ -1,15 +1,13 @@
 # Control-plane API
 
-`strategy-pipeline` coordinates an owner implementation with artifact
-publication. It carries references and receipts; it does not calculate the
-artifact contents.
+`strategy-pipeline` 负责协调 owner 实现和 artifact publication，传递 reference 和
+receipt，不计算 artifact 的具体内容。
 
 ## Contracts
 
-`ArtifactRef` identifies an immutable output with a kind, URI, digest, and
-producer. `RunRequest` carries a run ID and input artifact references.
-`PublicationRequest` and `HandoffRequest` describe downstream delivery.
-`RunReceipt` records the public result without exposing owner exception text.
+`ArtifactRef` 用 kind、URI、digest 和 producer 标识不可变输出。`RunRequest` 携带
+run ID 和输入 artifact reference。`PublicationRequest` 与 `HandoffRequest` 描述
+下游交付。`RunReceipt` 记录公共结果，不暴露 owner 的异常文本。
 
 ```python
 from strategy_pipeline import ArtifactRef, RunRequest, run
@@ -17,13 +15,12 @@ from strategy_pipeline import ArtifactRef, RunRequest, run
 request = RunRequest(run_id="run-2026-01-01", inputs=())
 ```
 
-All contracts are immutable, validated dataclasses. Artifact-producing code
-should return an `ArtifactRef`, not an in-memory domain object or provider
-client.
+所有 contract 都是不可变且经过校验的 dataclass。产出 artifact 的代码应返回
+`ArtifactRef`，避免返回内存中的 domain object 或 provider client。
 
-## Orchestration
+## 编排
 
-The public runner calls a `RunOwner`, then an `ArtifactPublisher`:
+公共 runner 先调用 `RunOwner`，再调用 `ArtifactPublisher`：
 
 ```python
 receipt = run(request, owner=owner, publisher=publisher)
@@ -31,16 +28,13 @@ if receipt.status == "published":
     print(receipt.artifacts)
 ```
 
-The runner returns a redacted `owner_failure` or `publication_failure`
-category when an injected implementation raises. It never serializes private
-exception details into the receipt.
+注入的实现抛出异常时，runner 返回经过脱敏的 `owner_failure` 或
+`publication_failure` category，不把私有异常细节序列化到 receipt。
 
-## Other boundaries
+## 其他边界
 
-Use `publish_artifact` for a callable writer and `publish_handoff` for a
-destination publisher. Both validate that the injected implementation returns
-an `ArtifactRef`.
+使用 `publish_artifact` 接入 callable writer，使用 `publish_handoff` 接入目标
+publisher。两者都会校验注入实现返回 `ArtifactRef`。
 
-The public package has no provider SDK, credentials, network client, storage
-backend, model implementation, or strategy registry. Those belong behind an
-adapter in the consuming repository.
+公共包不包含 provider SDK、凭证、网络 client、存储 backend、模型实现或策略 registry。
+这些能力应放在使用方仓库的 adapter 后面。
