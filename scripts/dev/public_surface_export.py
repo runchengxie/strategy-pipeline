@@ -129,23 +129,19 @@ def _assert_public_content(source_root: Path, relative: str) -> None:
             raise ValueError(f"secret pattern in public path: {relative}")
 
 
-def _write_public_metadata(output_root: Path, copied_paths: list[str]) -> None:
+def _write_public_metadata(
+    source_root: Path,
+    output_root: Path,
+    copied_paths: list[str],
+) -> None:
     (output_root / "README.md").write_text(PUBLIC_README, encoding="utf-8")
     (output_root / "pyproject.toml").write_text(PUBLIC_PYPROJECT, encoding="utf-8")
     package = output_root / "src" / "strategy_pipeline"
     package.mkdir(parents=True, exist_ok=True)
-    (package / "__init__.py").write_text(
-        "from .control_plane import (\n"
-        "    ArtifactPublisher, ArtifactRef, HandoffPublisher, HandoffRequest,\n"
-        "    PublicationRequest, RunOwner, RunReceipt, RunRequest, publish_artifact,\n"
-        "    publish_handoff, run,\n"
-        ")\n\n"
-        "__all__ = [\"ArtifactPublisher\", \"ArtifactRef\", \"HandoffPublisher\",\n"
-        "           \"HandoffRequest\", \"PublicationRequest\", \"RunOwner\",\n"
-        "           \"RunReceipt\", \"RunRequest\", \"publish_artifact\",\n"
-        "           \"publish_handoff\", \"run\"]\n",
-        encoding="utf-8",
-    )
+    source_init = source_root / "src" / "strategy_pipeline" / "__init__.py"
+    if not source_init.is_file():
+        raise ValueError(f"missing public package initializer: {source_init}")
+    shutil.copy2(source_init, package / "__init__.py")
     dev = output_root / "scripts" / "dev"
     dev.mkdir(parents=True, exist_ok=True)
     (dev / "public_dependency_registry.json").write_text(
@@ -207,7 +203,7 @@ def export_public_surface(source_root: Path, output_root: Path) -> dict[str, obj
     copied_paths = sorted(entry["path"] for entry in entries)
     if (source_root / "scripts/dev/public_surface_export.py").exists():
         _copy_entry(source_root, output_root, "scripts/dev/public_surface_export.py")
-    _write_public_metadata(output_root, copied_paths)
+    _write_public_metadata(source_root, output_root, copied_paths)
     return {
         "ready": True,
         "source_root": str(source_root),

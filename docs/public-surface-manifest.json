@@ -143,6 +143,13 @@
       "reason": "Generic command-line entry point for the public control plane."
     },
     {
+      "path": "src/strategy_pipeline/identity.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Stable public package identity values used by handoff artifacts."
+    },
+    {
       "path": "src/strategy_pipeline/e2_promotion_receipt.py",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
