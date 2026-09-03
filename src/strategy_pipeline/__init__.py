@@ -1,3 +1,19 @@
-from .public_core import ArtifactRef, RunReceipt, RunRequest, run_pipeline
+from .control_plane.contracts import (
+    ArtifactRef,
+    HandoffRequest,
+    PublicationRequest,
+    RunReceipt,
+    RunRequest,
+)
+from .control_plane.ports import ArtifactPublisher, HandoffPublisher, RunOwner
 
-__all__ = ["ArtifactRef", "RunReceipt", "RunRequest", "run_pipeline"]
+__all__ = [
+    "ArtifactPublisher",
+    "ArtifactRef",
+    "HandoffPublisher",
+    "HandoffRequest",
+    "PublicationRequest",
+    "RunOwner",
+    "RunReceipt",
+    "RunRequest",
+]
