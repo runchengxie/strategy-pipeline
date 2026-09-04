@@ -26,5 +26,6 @@ pip install strategy-pipeline
 - 日志、配置哈希和日期切分等运行时辅助能力
 - 通用 YAML 配置解析和继承
 - 不依赖私有模块的通用 CLI
+- 将 owner 产出的 holdings JSON 导出为标准 `targets.json` 和 lineage sidecar
 
 公共包不包含策略代码、provider SDK、凭证、私有研究流程或专有数据。

@@ -11,3 +11,21 @@ def test_public_cli_exposes_only_generic_commands():
     assert inspect_args.run_id == "run-1"
     assert publish_args.command == "publish"
     assert publish_args.run_id == "run-1"
+
+
+def test_public_cli_parses_generic_target_export():
+    parser = build_parser()
+
+    args = parser.parse_args(
+        [
+            "export-targets",
+            "--holdings",
+            "holdings.json",
+            "--out",
+            "targets.json",
+        ]
+    )
+
+    assert args.command == "export-targets"
+    assert args.holdings == "holdings.json"
+    assert args.out == "targets.json"

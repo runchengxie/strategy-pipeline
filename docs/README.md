@@ -14,5 +14,6 @@
 - [配置解析](configuration.md)：通用 YAML、`extends` 和别名解析。
 - [证据与协议 CLI](evidence-protocol-cli.md)：生成研究证据和评估 protocol manifest。
 - [CLI 辅助函数](cli-helpers.md)：参数拼接、数值格式化和进度条辅助函数。
+- [目标文件导出](targets.md)：将通用 holdings JSON 转换为执行侧可读取的 `targets.json`。
 
 策略思想、研究协议、provider 配置、凭证和私有运行手册应放在使用方仓库。
