@@ -8,5 +8,6 @@
 - [评估编排](evaluation.md)：评估指标、组合回放和结果产物之间的通用连接方式。
 - [运行摘要](output-summary.md)：把运行上下文和产物引用整理成结构化摘要。
 - [运行产物](output-artifacts.md)：写入数据集、信号、回测和诊断产物。
+- [质量闸门](quality-gates.md)：统一处理运行质量和 release protocol 交接条件。
 
 策略思想、研究协议、provider 配置、凭证和私有运行手册应放在使用方仓库。

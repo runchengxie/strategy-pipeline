@@ -550,6 +550,7 @@ dependencies = [
     { name = "numpy" },
     { name = "pandas" },
     { name = "portfolio-backtester" },
+    { name = "pyyaml" },
 ]
 
 [package.optional-dependencies]
@@ -566,6 +567,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.0,<3" },
     { name = "portfolio-backtester", git = "https://github.com/runchengxie/portfolio-backtester.git?rev=f24e0c561c279d6a6c7d1b4baea86ce8b1d6164d" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.8" },
 ]
 provides-extras = ["dev"]

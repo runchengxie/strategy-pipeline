@@ -59,6 +59,13 @@
       "reason": "Public explanation of generic artifact writing and owner API boundaries."
     },
     {
+      "path": "docs/quality-gates.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public explanation of generic quality and release-protocol handoff gates."
+    },
+    {
       "path": "docs/e2-promotion-receipt.md",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -183,6 +190,13 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Generic frame, series, JSON, and symbol normalization helpers used by artifact writers."
+    },
+    {
+      "path": "src/strategy_pipeline/pipeline/quality.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic quality thresholding and release-protocol handoff gates."
     },
     {
       "path": "src/strategy_pipeline/cli.py",

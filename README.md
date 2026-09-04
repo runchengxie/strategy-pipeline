@@ -22,6 +22,7 @@ pip install strategy-pipeline
 - 数据集、信号和回测结果的通用 artifact 写入
 - 把评估指标、组合回放和暴露产物连接起来的通用评估编排
 - 把运行上下文和产物引用整理成结构化摘要
+- 通用质量闸门和 release protocol 交接检查
 - 不依赖私有模块的通用 CLI
 
 公共包不包含策略代码、provider SDK、凭证、私有研究流程或专有数据。
