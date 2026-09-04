@@ -8,6 +8,7 @@
 - [评估编排](evaluation.md)：评估指标、组合回放和结果产物之间的通用连接方式。
 - [运行摘要](output-summary.md)：把运行上下文和产物引用整理成结构化摘要。
 - [运行产物](output-artifacts.md)：写入数据集、信号、回测和诊断产物。
+- [运行输出编排](output-orchestration.md)：按固定顺序调用产物、证据、摘要和元数据写入器。
 - [质量闸门](quality-gates.md)：统一处理运行质量和 release protocol 交接条件。
 - [运行时辅助能力](runtime-helpers.md)：日志、配置哈希和日期切分辅助函数。
 - [配置解析](configuration.md)：通用 YAML、`extends` 和别名解析。

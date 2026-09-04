@@ -59,6 +59,13 @@
       "reason": "Public explanation of generic artifact writing and owner API boundaries."
     },
     {
+      "path": "docs/output-orchestration.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public explanation of generic output lifecycle orchestration with injected owner callbacks."
+    },
+    {
       "path": "docs/quality-gates.md",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -192,6 +199,13 @@
       "reason": "Generic run artifact writing using public alpha and portfolio owner contracts."
     },
     {
+      "path": "src/strategy_pipeline/pipeline/output.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic output lifecycle ordering with strategy-specific callbacks injected by the owner."
+    },
+    {
       "path": "src/strategy_pipeline/pipeline/diagnostic_artifacts.py",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -274,6 +288,13 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Synthetic tests for artifact persistence behavior."
+    },
+    {
+      "path": "tests/test_pipeline_output.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Synthetic tests for generic output lifecycle ordering and disabled persistence."
     },
     {
       "path": "tests/test_e2_promotion_receipt.py",
