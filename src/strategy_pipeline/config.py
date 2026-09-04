@@ -96,7 +96,11 @@ def _search_candidates(
     if current_path is not None:
         candidates.append(current_path.parent / path)
     candidates.append(Path.cwd() / path)
-    candidates.extend(Path(root) / path for root in search_paths)
+    for root in search_paths:
+        search_root = Path(root)
+        candidates.append(search_root / path)
+        if path.name and path.name != str(path):
+            candidates.append(search_root / path.name)
 
     result: list[Path] = []
     seen: set[Path] = set()

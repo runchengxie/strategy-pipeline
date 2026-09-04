@@ -24,6 +24,18 @@ def test_resolve_config_supports_alias_and_relative_extends(tmp_path) -> None:
     assert aliased.data == resolved.data
 
 
+def test_resolve_config_falls_back_to_filename_in_search_roots(tmp_path) -> None:
+    base = tmp_path / "base.yml"
+    base.write_text("model:\n  name: linear\n", encoding="utf-8")
+    child = tmp_path / "nested" / "child.yml"
+    child.parent.mkdir()
+    child.write_text("extends: old-layout/base.yml\nmodel:\n  seed: 7\n", encoding="utf-8")
+
+    resolved = resolve_config(child, search_paths=[str(tmp_path)])
+
+    assert resolved.data == {"model": {"name": "linear", "seed": 7}}
+
+
 def test_resolve_config_rejects_circular_extends(tmp_path) -> None:
     first = tmp_path / "first.yml"
     second = tmp_path / "second.yml"
