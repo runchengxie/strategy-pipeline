@@ -12,5 +12,6 @@
 - [质量闸门](quality-gates.md)：统一处理运行质量和 release protocol 交接条件。
 - [运行时辅助能力](runtime-helpers.md)：日志、配置哈希和日期切分辅助函数。
 - [配置解析](configuration.md)：通用 YAML、`extends` 和别名解析。
+- [证据与协议 CLI](evidence-protocol-cli.md)：生成研究证据和评估 protocol manifest。
 
 策略思想、研究协议、provider 配置、凭证和私有运行手册应放在使用方仓库。
