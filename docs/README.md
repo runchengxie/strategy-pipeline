@@ -10,5 +10,6 @@
 - [运行产物](output-artifacts.md)：写入数据集、信号、回测和诊断产物。
 - [质量闸门](quality-gates.md)：统一处理运行质量和 release protocol 交接条件。
 - [运行时辅助能力](runtime-helpers.md)：日志、配置哈希和日期切分辅助函数。
+- [配置解析](configuration.md)：通用 YAML、`extends` 和别名解析。
 
 策略思想、研究协议、provider 配置、凭证和私有运行手册应放在使用方仓库。

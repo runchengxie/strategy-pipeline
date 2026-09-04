@@ -24,6 +24,7 @@ pip install strategy-pipeline
 - 把运行上下文和产物引用整理成结构化摘要
 - 通用质量闸门和 release protocol 交接检查
 - 日志、配置哈希和日期切分等运行时辅助能力
+- 通用 YAML 配置解析和继承
 - 不依赖私有模块的通用 CLI
 
 公共包不包含策略代码、provider SDK、凭证、私有研究流程或专有数据。
