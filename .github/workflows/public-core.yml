@@ -19,7 +19,7 @@ jobs:
       - name: Export reviewed public surface
         run: python scripts/dev/public_surface_export.py --output "$RUNNER_TEMP/public-surface"
       - name: Install public package
-        run: python -m pip install --no-deps "$RUNNER_TEMP/public-surface"
+        run: python -m pip install "$RUNNER_TEMP/public-surface[dev]"
       - name: Run public readiness gate
         run: cd "$RUNNER_TEMP/public-surface" && python scripts/dev/public_readiness.py --strict
       - name: Audit current tree and reachable history
