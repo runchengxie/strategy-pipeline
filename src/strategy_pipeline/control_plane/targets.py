@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -107,14 +108,42 @@ def export_targets(
         if lineage_path
         else targets_file.with_suffix(".json.lineage.json")
     )
+    content_sha256 = hashlib.sha256(targets_file.read_bytes()).hexdigest()
+    run_id = str(payload.get("run_id", holdings_file.stem))
+    configuration = {"source": source, "holdings_path": str(holdings_file)}
     lineage = {
-        "run_id": payload.get("run_id", holdings_file.stem),
+        "run_id": run_id,
         "source": source,
         "holdings_file": str(holdings_file),
         "target_count": len(targets),
         "markets": markets,
         "weight_sum": total,
-        "content_sha256": hashlib.sha256(targets_file.read_bytes()).hexdigest(),
+        "content_sha256": content_sha256,
+        "artifact_envelope": {
+            "schema_version": "research.artifact-envelope.v2",
+            "artifact_id": f"targets:{run_id}",
+            "artifact_type": "targets.json",
+            "run_id": run_id,
+            "created_at": datetime.now(UTC).isoformat(),
+            "producer": {
+                "repository": "strategy-pipeline",
+                "version": "0.1.0",
+                "commit": "unknown",
+                "backend": "export_targets",
+            },
+            "configuration_sha256": hashlib.sha256(
+                json.dumps(
+                    configuration, sort_keys=True, separators=(",", ":")
+                ).encode()
+            ).hexdigest(),
+            "content_sha256": content_sha256,
+            "lineage": [
+                {
+                    "artifact_id": "owner.holdings.json",
+                    "sha256": hashlib.sha256(holdings_file.read_bytes()).hexdigest(),
+                }
+            ],
+        },
     }
     sidecar.parent.mkdir(parents=True, exist_ok=True)
     sidecar.write_text(
