@@ -87,6 +87,13 @@
       "reason": "Public explanation of generic configuration loading and inheritance."
     },
     {
+      "path": "docs/evidence-protocol-cli.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public documentation for generic evidence and protocol command entrypoints."
+    },
+    {
       "path": "docs/e2-promotion-receipt.md",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -255,6 +262,20 @@
       "reason": "Generic command-line entry point for the public control plane."
     },
     {
+      "path": "src/strategy_pipeline/cli_evidence.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic AFML evidence command handler using public owner APIs."
+    },
+    {
+      "path": "src/strategy_pipeline/cli_protocol.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic research protocol manifest command handler using alpha-research APIs."
+    },
+    {
       "path": "src/strategy_pipeline/identity.py",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -295,6 +316,13 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Synthetic tests for generic output lifecycle ordering and disabled persistence."
+    },
+    {
+      "path": "tests/test_cli_evidence_protocol.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Synthetic tests for public evidence and protocol CLI registration."
     },
     {
       "path": "tests/test_e2_promotion_receipt.py",
