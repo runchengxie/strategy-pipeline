@@ -76,6 +76,16 @@ wheels = [
 ]
 
 [[package]]
+name = "market-data-platform"
+version = "0.2.0"
+source = { git = "https://github.com/runchengxie/market-data-platform.git?rev=5b0979790e1167c62a7d18cdf89b7adb06e7dd69#5b0979790e1167c62a7d18cdf89b7adb06e7dd69" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pyyaml" },
+    { name = "research-dev-metrics" },
+]
+
+[[package]]
 name = "narwhals"
 version = "2.25.0"
 source = { registry = "https://pypi.org/simple" }
@@ -536,6 +546,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "alpha-research" },
+    { name = "market-data-platform" },
     { name = "numpy" },
     { name = "pandas" },
     { name = "portfolio-backtester" },
@@ -550,6 +561,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "alpha-research", git = "https://github.com/runchengxie/alpha-research.git?rev=58e4eced77a71eb45a0b21ab76b74d1b509887a7" },
+    { name = "market-data-platform", git = "https://github.com/runchengxie/market-data-platform.git?rev=5b0979790e1167c62a7d18cdf89b7adb06e7dd69" },
     { name = "numpy", specifier = ">=1.23" },
     { name = "pandas", specifier = ">=2.0,<3" },
     { name = "portfolio-backtester", git = "https://github.com/runchengxie/portfolio-backtester.git?rev=f24e0c561c279d6a6c7d1b4baea86ce8b1d6164d" },

@@ -26,6 +26,7 @@ PRIVATE_GIT_PATTERN = re.compile(
 )
 PUBLIC_GIT_SOURCES = {
     "https://github.com/runchengxie/alpha-research.git",
+    "https://github.com/runchengxie/market-data-platform.git",
     "https://github.com/runchengxie/portfolio-backtester.git",
     "https://github.com/runchengxie/research-workspace.git",
     "https://github.com/runchengxie/research-dev-metrics.git",

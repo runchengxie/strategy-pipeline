@@ -19,6 +19,7 @@ pip install strategy-pipeline
 - 类型明确的 request、artifact reference 和 run receipt
 - 从 owner 到 publication 的确定性编排
 - 与 provider 无关的 artifact publication 和 handoff 边界
+- 数据集、信号和回测结果的通用 artifact 写入
 - 把评估指标、组合回放和暴露产物连接起来的通用评估编排
 - 把运行上下文和产物引用整理成结构化摘要
 - 不依赖私有模块的通用 CLI
