@@ -73,6 +73,13 @@
       "reason": "Public explanation of generic runtime helper boundaries."
     },
     {
+      "path": "docs/configuration.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public explanation of generic configuration loading and inheritance."
+    },
+    {
       "path": "docs/e2-promotion-receipt.md",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -211,6 +218,20 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Generic logging, hashing, date-splitting, and purge/embargo runtime helpers."
+    },
+    {
+      "path": "src/strategy_pipeline/config.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic YAML configuration loading, aliases, inheritance, and merging."
+    },
+    {
+      "path": "tests/test_config.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Synthetic tests for public configuration resolution."
     },
     {
       "path": "src/strategy_pipeline/cli.py",
