@@ -24,6 +24,12 @@ PRIVATE_GIT_PATTERN = re.compile(
     r"git\+https?://[^\s'\"]+|https?://github\.com/[^\s'\"]+\.git(?:[@#][^\s'\"]+)?",
     re.IGNORECASE,
 )
+PUBLIC_GIT_SOURCES = {
+    "https://github.com/runchengxie/alpha-research.git",
+    "https://github.com/runchengxie/portfolio-backtester.git",
+    "https://github.com/runchengxie/research-workspace.git",
+    "https://github.com/runchengxie/research-dev-metrics.git",
+}
 AUDIT_TOOL_PATHS = {
     "scripts/dev/history_publication_audit.py",
     "scripts/dev/public_surface_export.py",
@@ -36,7 +42,15 @@ def scan_text(text: str, *, path: str) -> list[dict[str, str]]:
         findings.append({"category": "secret-pattern", "path": path})
     if PRIVATE_STRATEGY_PATTERN.search(text) or PRIVATE_STRATEGY_PATTERN.search(path):
         findings.append({"category": "private-strategy-marker", "path": path})
-    if PRIVATE_GIT_PATTERN.search(text):
+    git_sources = {
+        match.group(0)
+        .removeprefix("git+")
+        .split("@", 1)[0]
+        .split("#", 1)[0]
+        .split("?", 1)[0]
+        for match in PRIVATE_GIT_PATTERN.finditer(text)
+    }
+    if git_sources - PUBLIC_GIT_SOURCES:
         findings.append({"category": "git-source-reference", "path": path})
     return findings
 

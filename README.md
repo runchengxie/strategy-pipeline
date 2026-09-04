@@ -20,6 +20,7 @@ pip install strategy-pipeline
 - 从 owner 到 publication 的确定性编排
 - 与 provider 无关的 artifact publication 和 handoff 边界
 - 把评估指标、组合回放和暴露产物连接起来的通用评估编排
+- 把运行上下文和产物引用整理成结构化摘要
 - 不依赖私有模块的通用 CLI
 
 公共包不包含策略代码、provider SDK、凭证、私有研究流程或专有数据。
