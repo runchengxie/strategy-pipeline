@@ -32,3 +32,16 @@ def test_resolve_config_rejects_circular_extends(tmp_path) -> None:
 
     with pytest.raises(SystemExit, match="Circular extends"):
         resolve_config(first)
+
+
+def test_resolve_config_accepts_an_injected_normalizer(tmp_path) -> None:
+    config = tmp_path / "config.yml"
+    config.write_text("legacy: true\n", encoding="utf-8")
+
+    def normalize(data):
+        normalized = dict(data)
+        normalized["normalized"] = normalized.pop("legacy")
+        return normalized
+
+    resolved = resolve_config(config, normalizer=normalize)
+    assert resolved.data == {"normalized": True}
