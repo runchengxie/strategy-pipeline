@@ -43,7 +43,7 @@ provider 和执行场所由使用方仓库负责，并通过独立的薄 adapter
 pip install strategy-pipeline
 ```
 
-运行时无第三方依赖。请先阅读[文档首页](docs/README.md)、[控制面 API](docs/control-plane.md)
+运行时依赖公开的 owner 包和常用数据处理库。请先阅读[文档首页](docs/README.md)、[控制面 API](docs/control-plane.md)
 和 [owner 接入指南](docs/integrating-an-owner.md)。
 
 ## 提供的能力
@@ -63,10 +63,18 @@ build-backend = \"setuptools.build_meta\"
 [project]
 name = \"strategy-pipeline\"
 version = \"0.1.0\"
-description = \"Dependency-free control-plane primitives for artifact orchestration\"
+description = \"Public pipeline orchestration for evaluation, artifacts, and handoff\"
 readme = \"README.md\"
 requires-python = \">=3.12\"
-dependencies = []
+dependencies = [
+  \"alpha-research @ git+https://github.com/runchengxie/alpha-research.git@58e4eced77a71eb45a0b21ab76b74d1b509887a7\",
+  \"market-data-platform @ git+https://github.com/runchengxie/market-data-platform.git@5b0979790e1167c62a7d18cdf89b7adb06e7dd69\",
+  \"numpy>=1.23\",
+  \"pandas>=2.0,<3\",
+  \"portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@f24e0c561c279d6a6c7d1b4baea86ce8b1d6164d\",
+  \"pyarrow>=23.0.1\",
+  \"pyyaml>=6.0\",
+]
 
 [tool.setuptools]
 package-dir = {\"\" = \"src\"}
@@ -74,6 +82,16 @@ package-dir = {\"\" = \"src\"}
 [tool.setuptools.packages.find]
 where = [\"src\"]
 include = [\"strategy_pipeline\", \"strategy_pipeline.*\"]
+"""
+
+PUBLIC_DEPENDENCY_REGISTRY = """{
+  \"schema_version\": 1,
+  \"repositories\": {
+    \"https://github.com/runchengxie/alpha-research.git\": \"public\",
+    \"https://github.com/runchengxie/market-data-platform.git\": \"public\",
+    \"https://github.com/runchengxie/portfolio-backtester.git\": \"public\"
+  }
+}
 """
 
 
@@ -145,7 +163,7 @@ def _write_public_metadata(
     dev = output_root / "scripts" / "dev"
     dev.mkdir(parents=True, exist_ok=True)
     (dev / "public_dependency_registry.json").write_text(
-        '{\n  "schema_version": 1,\n  "repositories": {}\n}\n',
+        PUBLIC_DEPENDENCY_REGISTRY,
         encoding="utf-8",
     )
     (dev / "public_readiness_debt.json").write_text(
