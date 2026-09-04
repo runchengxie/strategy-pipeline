@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from importlib import resources
 from pathlib import Path
@@ -145,10 +145,12 @@ def _resolve_extends(
     search_paths: list[str],
     current_path: Path | None,
     stack: set[str],
+    normalizer: Callable[[Mapping[str, Any]], dict[str, Any]] | None,
 ) -> dict[str, Any]:
-    extends = data.get(EXTENDS_KEY)
+    normalized = normalizer(data) if normalizer is not None else dict(data)
+    extends = normalized.get(EXTENDS_KEY)
     if extends is None:
-        return dict(data)
+        return normalized
     if isinstance(extends, str):
         refs = [extends]
     elif isinstance(extends, list):
@@ -179,12 +181,13 @@ def _resolve_extends(
                 search_paths=search_paths,
                 current_path=loaded.path,
                 stack=stack,
+                normalizer=normalizer,
             )
         finally:
             stack.remove(loaded.source)
         merged = deep_merge(merged, resolved)
 
-    local = dict(data)
+    local = normalized
     local.pop(EXTENDS_KEY, None)
     return deep_merge(merged, local)
 
@@ -196,6 +199,7 @@ def resolve_config(
     default_name: str | None = None,
     aliases: Mapping[str, str] | None = None,
     search_paths: list[str] | None = None,
+    normalizer: Callable[[Mapping[str, Any]], dict[str, Any]] | None = None,
 ) -> ResolvedConfig:
     """Resolve a config path, alias, or package resource with ``extends``."""
 
@@ -231,6 +235,7 @@ def resolve_config(
         search_paths=paths,
         current_path=loaded.path,
         stack={loaded.source},
+        normalizer=normalizer,
     )
     return ResolvedConfig(
         data=resolved,
