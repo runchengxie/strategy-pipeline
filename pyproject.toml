@@ -5,20 +5,31 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "strategy-pipeline"
 version = "0.1.0"
-description = "Dependency-free control-plane primitives for artifact orchestration"
+description = "Public research-pipeline orchestration for evaluation, artifacts, and handoff"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+  "alpha-research @ git+https://github.com/runchengxie/alpha-research.git@58e4eced77a71eb45a0b21ab76b74d1b509887a7",
+  "numpy>=1.23",
+  "pandas>=2.0,<3",
+  "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@f24e0c561c279d6a6c7d1b4baea86ce8b1d6164d",
+]
 
 [project.scripts]
 strategy-pipeline = "strategy_pipeline.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9.0.0",
+  "ruff>=0.8",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["strategy_pipeline", "strategy_pipeline.control_plane", "strategy_pipeline.control_plane.*"]
+include = ["strategy_pipeline", "strategy_pipeline.*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
