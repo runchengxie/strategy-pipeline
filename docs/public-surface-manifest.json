@@ -94,6 +94,13 @@
       "reason": "Public documentation for generic evidence and protocol command entrypoints."
     },
     {
+      "path": "docs/cli-helpers.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public documentation for strategy-neutral CLI argument and formatting helpers."
+    },
+    {
       "path": "docs/e2-promotion-receipt.md",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -276,6 +283,13 @@
       "reason": "Generic research protocol manifest command handler using alpha-research APIs."
     },
     {
+      "path": "src/strategy_pipeline/cli_helpers.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Strategy-neutral CLI argument, numeric formatting, and progress display helpers."
+    },
+    {
       "path": "src/strategy_pipeline/identity.py",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -323,6 +337,13 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Synthetic tests for public evidence and protocol CLI registration."
+    },
+    {
+      "path": "tests/test_cli_helpers.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Synthetic tests for public CLI argument and formatting helpers."
     },
     {
       "path": "tests/test_e2_promotion_receipt.py",
