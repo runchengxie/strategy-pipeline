@@ -11,9 +11,9 @@ import numpy as np
 import pandas as pd
 import yaml
 from alpha_research.date_slices import (
-    _build_trade_date_slices,
-    _slice_trade_date_range,
-    _slice_with_train_window,
+    build_trade_date_slices,
+    slice_trade_date_range,
+    slice_with_train_window,
 )
 from alpha_research.evaluation_config import warn_if_purge_too_small
 from portfolio_backtester.rebalance import estimate_rebalance_gap
@@ -233,14 +233,14 @@ def _slice_final_oos_holdout(
             final_oos_dates = all_dates_model_full[-final_oos_len:]
             final_oos_start = pd.to_datetime(final_oos_dates[0])
             final_oos_end = pd.to_datetime(final_oos_dates[-1])
-            df_model_oos = _slice_trade_date_range(
+            df_model_oos = slice_trade_date_range(
                 df_model_all_sorted,
                 model_date_start_rows,
                 model_date_end_rows,
                 final_oos_start_pos,
                 len(all_dates_model_full) - 1,
             )
-            df_model = _slice_trade_date_range(
+            df_model = slice_trade_date_range(
                 df_model_all_sorted,
                 model_date_start_rows,
                 model_date_end_rows,
@@ -279,7 +279,7 @@ def _build_in_sample_date_state(
         all_date_start_rows,
         all_date_end_rows,
         all_date_to_pos,
-    ) = _build_trade_date_slices(df_model)
+    ) = build_trade_date_slices(df_model)
 
     if len(all_dates) < 10:
         recent_dates = [
@@ -330,7 +330,7 @@ def _build_train_test_split_state(
         train_end = max(0, split_idx - effective_gap_steps)
     train_dates_full = all_dates[:train_end]
     test_dates = all_dates[split_idx:]
-    train_df, train_dates = _slice_with_train_window(
+    train_df, train_dates = slice_with_train_window(
         df_model_sorted,
         all_date_start_rows,
         all_date_end_rows,
@@ -341,7 +341,7 @@ def _build_train_test_split_state(
         train_window_size=train_window_size,
         train_window_unit=train_window_unit,
     )
-    test_df = _slice_trade_date_range(
+    test_df = slice_trade_date_range(
         df_model_sorted,
         all_date_start_rows,
         all_date_end_rows,
