@@ -45,6 +45,13 @@
       "reason": "Public explanation of generic evaluation orchestration using public owner APIs."
     },
     {
+      "path": "docs/output-summary.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public explanation of generic run-summary assembly from supplied context and artifacts."
+    },
+    {
       "path": "docs/e2-promotion-receipt.md",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -143,6 +150,13 @@
       "reason": "Included in the reviewed clean-root public surface."
     },
     {
+      "path": "src/strategy_pipeline/pipeline/output_summary_sections.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic run-summary assembly that delegates execution descriptions to public owner APIs."
+    },
+    {
       "path": "src/strategy_pipeline/cli.py",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
@@ -169,6 +183,13 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Included in the reviewed clean-root public surface."
+    },
+    {
+      "path": "tests/test_pipeline_output_summary_sections.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Synthetic tests for generic run-summary helper behavior."
     },
     {
       "path": "tests/test_e2_promotion_receipt.py",
