@@ -52,6 +52,13 @@
       "reason": "Public explanation of generic run-summary assembly from supplied context and artifacts."
     },
     {
+      "path": "docs/output-artifacts.md",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Public explanation of generic artifact writing and owner API boundaries."
+    },
+    {
       "path": "docs/e2-promotion-receipt.md",
       "classification": "public-contract",
       "owner": "strategy-pipeline maintainers",
@@ -157,6 +164,27 @@
       "reason": "Generic run-summary assembly that delegates execution descriptions to public owner APIs."
     },
     {
+      "path": "src/strategy_pipeline/pipeline/output_artifacts.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic run artifact writing using public alpha and portfolio owner contracts."
+    },
+    {
+      "path": "src/strategy_pipeline/pipeline/diagnostic_artifacts.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic persistence helpers for supplied diagnostic summaries and frames."
+    },
+    {
+      "path": "src/strategy_pipeline/pipeline/support.py",
+      "classification": "public-contract",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Generic frame, series, JSON, and symbol normalization helpers used by artifact writers."
+    },
+    {
       "path": "src/strategy_pipeline/cli.py",
       "classification": "public-control-plane",
       "owner": "strategy-pipeline maintainers",
@@ -190,6 +218,13 @@
       "owner": "strategy-pipeline maintainers",
       "sensitivity": "releasable",
       "reason": "Synthetic tests for generic run-summary helper behavior."
+    },
+    {
+      "path": "tests/test_pipeline_output_artifacts.py",
+      "classification": "public-control-plane",
+      "owner": "strategy-pipeline maintainers",
+      "sensitivity": "releasable",
+      "reason": "Synthetic tests for artifact persistence behavior."
     },
     {
       "path": "tests/test_e2_promotion_receipt.py",

@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "alpha-research @ git+https://github.com/runchengxie/alpha-research.git@58e4eced77a71eb45a0b21ab76b74d1b509887a7",
+  "market-data-platform @ git+https://github.com/runchengxie/market-data-platform.git@5b0979790e1167c62a7d18cdf89b7adb06e7dd69",
   "numpy>=1.23",
   "pandas>=2.0,<3",
   "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@f24e0c561c279d6a6c7d1b4baea86ce8b1d6164d",
