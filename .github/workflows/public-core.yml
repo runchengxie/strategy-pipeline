@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
       - name: Export reviewed public surface
         run: python scripts/dev/public_surface_export.py --output "$RUNNER_TEMP/public-surface"
       - name: Install public package
