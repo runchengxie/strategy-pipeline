@@ -5,12 +5,13 @@ from __future__ import annotations
 import argparse
 import json
 
-from .cli_evidence import register_afml_evidence_commands
-from .cli_protocol import register_protocol_commands
 from .control_plane.targets import export_targets
 
 
 def build_parser() -> argparse.ArgumentParser:
+    from .cli_evidence import register_afml_evidence_commands
+    from .cli_protocol import register_protocol_commands
+
     parser = argparse.ArgumentParser(prog="strategy-pipeline")
     commands = parser.add_subparsers(dest="command", required=True)
     register_afml_evidence_commands(commands)

@@ -7,11 +7,6 @@ import json
 from pathlib import Path
 
 import yaml
-from alpha_research.research_protocols import load_protocol_manifest
-from portfolio_backtester.afml_evidence import (
-    generate_run_afml_evidence,
-    merge_evidence_fragment,
-)
 
 
 def add_afml_evidence_args(parser: argparse.ArgumentParser) -> None:
@@ -29,6 +24,12 @@ def add_afml_evidence_args(parser: argparse.ArgumentParser) -> None:
 
 
 def handle_afml_evidence(args: argparse.Namespace) -> int:
+    from alpha_research.research_protocols import load_protocol_manifest
+    from portfolio_backtester.afml_evidence import (
+        generate_run_afml_evidence,
+        merge_evidence_fragment,
+    )
+
     fragment = generate_run_afml_evidence(
         args.run_dir,
         target_sharpe=args.target_sharpe,
