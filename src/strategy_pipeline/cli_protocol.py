@@ -7,14 +7,6 @@ import json
 from pathlib import Path
 from typing import cast
 
-from alpha_research.research_protocols import (
-    ProtocolLevel,
-    evaluate_protocol_manifest,
-    example_manifest,
-    load_protocol_manifest,
-    write_protocol_report,
-)
-
 
 def add_protocol_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
@@ -29,6 +21,14 @@ def add_protocol_args(parser: argparse.ArgumentParser) -> None:
 
 
 def handle_protocol(args: argparse.Namespace) -> int:
+    from alpha_research.research_protocols import (
+        ProtocolLevel,
+        evaluate_protocol_manifest,
+        example_manifest,
+        load_protocol_manifest,
+        write_protocol_report,
+    )
+
     level = cast(ProtocolLevel, str(args.level))
     if args.init_manifest:
         target = Path(args.init_manifest)

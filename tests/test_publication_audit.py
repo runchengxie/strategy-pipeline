@@ -40,4 +40,5 @@ def test_clean_root_metadata_declares_runtime_import_dependencies() -> None:
     dependencies = project["project"]["dependencies"]
     names = {str(item).split(" @ ", 1)[0].split(">", 1)[0] for item in dependencies}
 
-    assert {"alpha-research", "market-data-platform", "portfolio-backtester", "pyyaml"} <= names
+    assert names == {"numpy", "pandas", "pyarrow", "pyyaml"}
+    assert all(" @ git+" not in str(item) for item in dependencies)
