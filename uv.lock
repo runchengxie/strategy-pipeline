@@ -565,7 +565,7 @@ requires-dist = [
     { name = "alpha-research", git = "https://github.com/runchengxie/alpha-research.git?rev=d4dcf2ff48aab6a2cec87aa6219b5cab59ddf859" },
     { name = "market-data-platform", git = "https://github.com/runchengxie/market-data-platform.git?rev=fb4da36874382b9887fd2a16dfde8a5c83ea43fa" },
     { name = "numpy", specifier = ">=1.23" },
-    { name = "pandas", specifier = ">=2.0,<3" },
+    { name = "pandas", specifier = ">=2.0,<4" },
     { name = "portfolio-backtester", git = "https://github.com/runchengxie/portfolio-backtester.git?rev=e78cd1d1b42f7af6cfbcc64c84ccbbf836f94bc4" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.0" },
     { name = "pyyaml", specifier = ">=6.0" },
