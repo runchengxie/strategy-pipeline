@@ -12,7 +12,7 @@ dependencies = [
   "alpha-research @ git+https://github.com/runchengxie/alpha-research.git@d4dcf2ff48aab6a2cec87aa6219b5cab59ddf859",
   "market-data-platform @ git+https://github.com/runchengxie/market-data-platform.git@fb4da36874382b9887fd2a16dfde8a5c83ea43fa",
   "numpy>=1.23",
-  "pandas>=2.0,<3",
+  "pandas>=2.0,<4",
   "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@e78cd1d1b42f7af6cfbcc64c84ccbbf836f94bc4",
   "pyyaml>=6.0",
 ]
