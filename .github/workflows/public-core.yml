@@ -26,3 +26,5 @@ jobs:
         run: python scripts/dev/history_publication_audit.py --root .
       - name: Run synthetic public core tests
         run: cd "$RUNNER_TEMP/public-surface" && python -m pip install pytest && PYTHONPATH=src python -m pytest tests/control_plane -q
+      - name: Run shared code-quality metrics
+        run: uvx --from git+https://github.com/runchengxie/research-code-quality.git@3ff7580 research-code-quality --scope src --scope scripts --scope tests --json

@@ -9,11 +9,11 @@ description = "Public research-pipeline orchestration for evaluation, artifacts,
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-  "alpha-research @ git+https://github.com/runchengxie/alpha-research.git@58e4eced77a71eb45a0b21ab76b74d1b509887a7",
-  "market-data-platform @ git+https://github.com/runchengxie/market-data-platform.git@5b0979790e1167c62a7d18cdf89b7adb06e7dd69",
+  "alpha-research @ git+https://github.com/runchengxie/alpha-research.git@5dc5c63aab61e809e37a9806471dfaed35ca3f7d",
+  "market-data-platform @ git+https://github.com/runchengxie/market-data-platform.git@826e21eb20b7570f1789a82f44269b75b12a7b3c",
   "numpy>=1.23",
   "pandas>=2.0,<3",
-  "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@f24e0c561c279d6a6c7d1b4baea86ce8b1d6164d",
+  "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@78c5858bb0490ff73d5d1fb3a38851c797b7dc70",
   "pyyaml>=6.0",
 ]
 
@@ -23,6 +23,7 @@ strategy-pipeline = "strategy_pipeline.cli:main"
 [project.optional-dependencies]
 dev = [
   "pytest>=9.0.0",
+  "research-code-quality",
   "ruff>=0.8",
 ]
 
@@ -35,3 +36,6 @@ include = ["strategy_pipeline", "strategy_pipeline.*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[tool.uv.sources]
+research-code-quality = { git = "https://github.com/runchengxie/research-code-quality.git", rev = "3ff7580" }

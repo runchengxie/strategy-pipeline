@@ -29,7 +29,7 @@ PUBLIC_GIT_SOURCES = {
     "https://github.com/runchengxie/market-data-platform.git",
     "https://github.com/runchengxie/portfolio-backtester.git",
     "https://github.com/runchengxie/research-workspace.git",
-    "https://github.com/runchengxie/research-dev-metrics.git",
+    "https://github.com/runchengxie/research-code-quality.git",
 }
 AUDIT_TOOL_PATHS = {
     "scripts/dev/history_publication_audit.py",
