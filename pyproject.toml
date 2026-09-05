@@ -9,11 +9,11 @@ description = "Public research-pipeline orchestration for evaluation, artifacts,
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-  "alpha-research @ git+https://github.com/runchengxie/alpha-research.git@5dc5c63aab61e809e37a9806471dfaed35ca3f7d",
-  "market-data-platform @ git+https://github.com/runchengxie/market-data-platform.git@826e21eb20b7570f1789a82f44269b75b12a7b3c",
+  "alpha-research @ git+https://github.com/runchengxie/alpha-research.git@d4dcf2ff48aab6a2cec87aa6219b5cab59ddf859",
+  "market-data-platform @ git+https://github.com/runchengxie/market-data-platform.git@fb4da36874382b9887fd2a16dfde8a5c83ea43fa",
   "numpy>=1.23",
   "pandas>=2.0,<3",
-  "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@78c5858bb0490ff73d5d1fb3a38851c797b7dc70",
+  "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@e78cd1d1b42f7af6cfbcc64c84ccbbf836f94bc4",
   "pyyaml>=6.0",
 ]
 
@@ -38,4 +38,4 @@ include = ["strategy_pipeline", "strategy_pipeline.*"]
 pythonpath = ["src"]
 
 [tool.uv.sources]
-research-code-quality = { git = "https://github.com/runchengxie/research-code-quality.git", rev = "3ff7580" }
+research-code-quality = { git = "https://github.com/runchengxie/research-code-quality.git", rev = "1c754c3" }
