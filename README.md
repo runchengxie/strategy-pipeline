@@ -29,3 +29,5 @@ pip install strategy-pipeline
 - 将 owner 产出的 holdings JSON 导出为标准 `targets.json` 和 lineage sidecar
 
 公共包不包含策略代码、provider SDK、凭证、私有研究流程或专有数据。
+
+编码代理默认读取根 README、[文档首页](docs/README.md) 和一个与任务相关的分类目录。

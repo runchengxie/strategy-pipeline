@@ -1,6 +1,10 @@
-# CLI 辅助函数
+# 文档已移动
 
-`strategy_pipeline.cli_helpers` 提供命令适配器共用的小型辅助函数，包括字节数和百分比展示、
-命令参数拼接以及透传参数处理。
+> status: superseded
+> owner: strategy-pipeline
+> audience: human and agent
+> last_verified: 2026-09-06
+> source_of_truth: no
+> superseded_by: reference/cli-helpers.md
 
-这些函数不读取配置、不访问数据，也不包含策略逻辑。具体命令负责处理自己的配置和业务参数。
+当前正文请阅读 [CLI 辅助函数](reference/cli-helpers.md)。
