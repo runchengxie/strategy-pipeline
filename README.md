@@ -1,5 +1,7 @@
 # Strategy Pipeline
 
+> 迁移状态：migration-only。新的策略编排进入 `quant-research`，通用编排 contract 进入 `quant-platform`。本仓库保留历史运行和迁移兼容入口。
+
 面向研究评估、artifact 编排、发布、回执和下游交接的公共 pipeline 能力。
 
 本仓库负责 run 周边的物流控制。具体策略、研究流程、特征模型、组合规则、数据

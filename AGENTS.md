@@ -1,5 +1,9 @@
 # Agent 指南
 
+## 迁移通知
+
+`research-workspace` 处于 sunset 过渡期。新的策略编排和现金流运行流程进入 `quant-research`，可复用的编排 contract 进入 `quant-platform`。本仓库只维护历史复现和兼容迁移。
+
 ## 仓库定位
 
 本仓库提供公开的通用控制面，负责 run 编排、artifact reference、receipt、publication

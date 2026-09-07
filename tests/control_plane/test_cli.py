@@ -29,3 +29,22 @@ def test_public_cli_parses_generic_target_export():
     assert args.command == "export-targets"
     assert args.holdings == "holdings.json"
     assert args.out == "targets.json"
+
+
+def test_public_cli_parses_cashflow_shadow_publication():
+    parser = build_parser()
+
+    args = parser.parse_args(
+        [
+            "cashflow-publish-shadow",
+            "--selection",
+            "selection.json",
+            "--readiness",
+            "readiness.json",
+            "--output-root",
+            "published",
+        ]
+    )
+
+    assert args.command == "cashflow-publish-shadow"
+    assert args.selection == "selection.json"

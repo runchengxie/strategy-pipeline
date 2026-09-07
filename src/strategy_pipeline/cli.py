@@ -28,6 +28,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     export.add_argument("--lineage-out", help="Optional lineage sidecar output path.")
     export.add_argument("--source", default="strategy-pipeline")
+    cashflow = commands.add_parser("cashflow-publish-shadow")
+    cashflow.add_argument("--selection", required=True)
+    cashflow.add_argument("--readiness", required=True)
+    cashflow.add_argument("--output-root", required=True)
+    cashflow.add_argument("--allow-reconstructed-pit", action="store_true")
     return parser
 
 
@@ -43,6 +48,24 @@ def main(argv: list[str] | None = None) -> int:
             source=args.source,
         )
         print(json.dumps({"targets": args.out, "lineage": str(lineage)}))
+        return 0
+    if args.command == "cashflow-publish-shadow":
+        from .cashflow_publication import publish_cashflow_shadow
+
+        publication = publish_cashflow_shadow(
+            args.selection,
+            readiness_path=args.readiness,
+            output_root=args.output_root,
+            allow_reconstructed_pit=args.allow_reconstructed_pit,
+        )
+        print(
+            json.dumps(
+                {
+                    "targets": str(publication.targets_path),
+                    "receipt": str(publication.receipt_path),
+                }
+            )
+        )
         return 0
     print(json.dumps({"command": args.command, "run_id": args.run_id}))
     return 0
