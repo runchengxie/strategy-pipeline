@@ -2,6 +2,12 @@ version = 1
 revision = 3
 requires-python = ">=3.12"
 
+[manifest]
+overrides = [
+    { name = "research-code-quality", git = "https://github.com/runchengxie/quant-code-quality.git?rev=1c754c3" },
+    { name = "research-contracts", git = "https://github.com/runchengxie/research-workspace.git?subdirectory=src%2Fresearch_contracts&rev=05f39873047a20a935957e3bbe04c62b463e4188" },
+]
+
 [[package]]
 name = "alpha-research"
 version = "0.4.0"
@@ -246,7 +252,7 @@ wheels = [
 [[package]]
 name = "portfolio-backtester"
 version = "0.4.0"
-source = { git = "https://github.com/runchengxie/portfolio-backtester.git?rev=2df06a14441f43a85b3b4d5c999be3759239e4ab#2df06a14441f43a85b3b4d5c999be3759239e4ab" }
+source = { git = "https://github.com/runchengxie/portfolio-backtester.git?rev=b84e79648df5ab73c2ca9e81cba790d2a2e87aa2#b84e79648df5ab73c2ca9e81cba790d2a2e87aa2" }
 dependencies = [
     { name = "numpy" },
     { name = "pandas" },
@@ -389,12 +395,12 @@ wheels = [
 [[package]]
 name = "research-code-quality"
 version = "0.2.0"
-source = { git = "https://github.com/runchengxie/research-code-quality.git?rev=1c754c3#1c754c307610ac61a289d728ea79df82677c1034" }
+source = { git = "https://github.com/runchengxie/quant-code-quality.git?rev=1c754c3#1c754c307610ac61a289d728ea79df82677c1034" }
 
 [[package]]
 name = "research-contracts"
 version = "0.1.0"
-source = { git = "https://github.com/runchengxie/research-workspace.git?subdirectory=src%2Fresearch_contracts&rev=235d8405b5706854cc6c1b68eb4e376c0e09f927#235d8405b5706854cc6c1b68eb4e376c0e09f927" }
+source = { git = "https://github.com/runchengxie/research-workspace.git?subdirectory=src%2Fresearch_contracts&rev=05f39873047a20a935957e3bbe04c62b463e4188#05f39873047a20a935957e3bbe04c62b463e4188" }
 
 [[package]]
 name = "ruff"
@@ -566,10 +572,10 @@ requires-dist = [
     { name = "market-data-platform", git = "https://github.com/runchengxie/quant-market-data-platform.git?rev=2e98440890e7af85da394731be55ded720dfd4aa" },
     { name = "numpy", specifier = ">=1.23" },
     { name = "pandas", specifier = ">=2.0,<4" },
-    { name = "portfolio-backtester", git = "https://github.com/runchengxie/portfolio-backtester.git?rev=2df06a14441f43a85b3b4d5c999be3759239e4ab" },
+    { name = "portfolio-backtester", git = "https://github.com/runchengxie/portfolio-backtester.git?rev=b84e79648df5ab73c2ca9e81cba790d2a2e87aa2" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.0" },
     { name = "pyyaml", specifier = ">=6.0" },
-    { name = "research-code-quality", marker = "extra == 'dev'", git = "https://github.com/runchengxie/research-code-quality.git?rev=1c754c3" },
+    { name = "research-code-quality", marker = "extra == 'dev'", git = "https://github.com/runchengxie/quant-code-quality.git?rev=1c754c3" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.8" },
 ]
 provides-extras = ["dev"]

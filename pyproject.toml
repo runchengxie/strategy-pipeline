@@ -13,7 +13,7 @@ dependencies = [
   "market-data-platform @ git+https://github.com/runchengxie/quant-market-data-platform.git@2e98440890e7af85da394731be55ded720dfd4aa",
   "numpy>=1.23",
   "pandas>=2.0,<4",
-  "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@2df06a14441f43a85b3b4d5c999be3759239e4ab",
+  "portfolio-backtester @ git+https://github.com/runchengxie/portfolio-backtester.git@b84e79648df5ab73c2ca9e81cba790d2a2e87aa2",
   "pyyaml>=6.0",
 ]
 
@@ -38,4 +38,10 @@ include = ["strategy_pipeline", "strategy_pipeline.*"]
 pythonpath = ["src"]
 
 [tool.uv.sources]
-research-code-quality = { git = "https://github.com/runchengxie/research-code-quality.git", rev = "1c754c3" }
+research-code-quality = { git = "https://github.com/runchengxie/quant-code-quality.git", rev = "1c754c3" }
+
+[tool.uv]
+override-dependencies = [
+  "research-code-quality @ git+https://github.com/runchengxie/quant-code-quality.git@1c754c3",
+  "research-contracts @ git+https://github.com/runchengxie/research-workspace.git@05f39873047a20a935957e3bbe04c62b463e4188#subdirectory=src/research_contracts",
+]
